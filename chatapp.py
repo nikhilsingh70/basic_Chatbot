@@ -34,9 +34,7 @@ pubnub.add_listener(MySubscribeCallback())
 pubnub.subscribe().channels(channel).execute()
 
 
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-## GUI Setup
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#GUI setup
 def exit_handler():
     os._exit(1)
 
@@ -54,9 +52,7 @@ window.setLayout(layout)
 window.show()
 
 
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-## Username Input
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#Username Input
 name, okPressed = QInputDialog.getText(
     window,
     "VAILIX",
@@ -71,9 +67,7 @@ else:
     exit_handler() # invalid username, exiting
 
 
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-## UI Send/Receive Message Functions
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#UI Send/Receive Message Functions
 def display_new_messages():
     while new_messages:
         if len(new_messages) > 0:
@@ -86,9 +80,7 @@ def send_message():
     message_input.clear()
 
 
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-## Qt Signals
-##-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+#Qt Signals
 message_input.returnPressed.connect(send_message)
 timer = QTimer()
 timer.timeout.connect(display_new_messages)
